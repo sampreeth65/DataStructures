@@ -81,14 +81,14 @@ public class LinkedList
 	//deleteLast
 	public void removeLast()
 	{
-		if (first == null)
-			throw new NoSuchElementException();
+		if (first == null)    // if list is empty and tried to remove a value, it will throw NullPointerException
+			throw new NoSuchElementException();  // So to handle this we will throw NoSuchElementException
 		
 		if (first == last)
 		{
 			first = last = null;
 			size = 0;
-			return;
+			return;     // If list is empty first and last element will be the same node and there is no need to traverse the list.
 		}
 		Node currentNode = first;
 		
@@ -126,7 +126,6 @@ public class LinkedList
 	
 	public void print()
 	{
-		
 		if (first == last)
 		{
 			System.out.println(first.value);
@@ -142,6 +141,8 @@ public class LinkedList
 		}
 	}
 	
+	//Counting through the list will increase the time complexity to o(n)
+	// using this process to find the size of the list will make time complexity to o(1)
 	public int size()
 	{
 		return size;	
@@ -161,6 +162,12 @@ public class LinkedList
 		
 		return array;
 	}
+	
+	/**
+	 * This method is not needed to be handled by the users therefore it is private.
+	 * @param node
+	 * @return
+	 */
 	private Node previousNode(Node node)
 	{
 		Node currentNode = first;
@@ -173,6 +180,30 @@ public class LinkedList
 	}
 	
 	public void reverse()
+	{
+		//Example: [10  ->  20 -> 30]
+		//          p   <-  c      n
+		//                  p  <-  c  <- n
+		
+		if (first == null) 
+			return;
+		
+		Node previous = first;
+		Node currentNode = first.next;
+		while (currentNode != null)
+		{
+			Node next = currentNode.next;
+			currentNode.next = previous;
+			previous = currentNode;
+			currentNode = next;
+		}
+		last = first;
+		last.next = null;
+		first = previous;
+	}
+	
+	//Time complexity of this process o(n) this process takes more time than above process.
+	public void reverse_try()
 	{
 		Node currentNode = last;
 		while (currentNode != first)
