@@ -216,8 +216,89 @@ public class LinkedList
 		Node tempNode;
 		tempNode = last;
 		last = first;
-		first = tempNode;
+		first = tempNode;	
+	}
 	
+	//Find the kth node from the end with one search.
+	public int getKthElementFromTheEnd(int kth)
+	{
 		
+		
+		//first have two points 
+		// place the pointer in such a way that first pointer and second pointer are at a distance.
+		// distance is k -1
+		// stop moving forward when the second pointer reachs the end.
+		if (first == null)
+			throw new IllegalStateException();
+		
+		Node firstPointer = first;
+		Node secondPointer = first;
+		for (int index = 0; index < kth -1; index++)
+		{
+			secondPointer = secondPointer.next;
+			if (secondPointer == null)
+				throw new IllegalArgumentException();
+		}
+		while(secondPointer != last)
+		{
+			firstPointer = firstPointer.next;
+			secondPointer = secondPointer.next;
+		}
+		return firstPointer.value;
+	}
+	
+	//Do this process in one pass.
+	// Consider for odd elements 
+	// No of elements     Middle element
+	//      1                 1
+	//      3                 2
+	//      5                 3
+	//      .                 .
+	//      .                 . 
+	
+	// Consider for even elements
+	// No of elements     Middle elements
+	//     2					1,2
+	//     4                    2,3
+	//     6                    3,4
+	//     .                     .
+	//     .                     .
+	
+	
+	public void printMiddleElement()
+	{
+		Node firstPointer = first;
+		Node secondPointer = first;
+		
+		while(secondPointer != null)
+		{
+			int count = 1;
+			for(int index = 0; index < 2; index++)
+			{
+				count++;
+				if (secondPointer == last)
+				{
+					count--;
+					break;
+				}	
+				secondPointer = secondPointer.next;
+			}
+			
+			
+			
+			if (secondPointer == last)
+			{
+				if (count % 2 == 0)
+					System.out.println("[" + firstPointer.value + "," + firstPointer.next.value + "]");
+				else 
+				{
+					firstPointer = firstPointer.next;
+					System.out.println("[" + firstPointer.value + "]");
+				}
+				secondPointer = secondPointer.next;
+				break;
+			}
+			firstPointer = firstPointer.next;
+		}
 	}
 }
