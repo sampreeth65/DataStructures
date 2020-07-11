@@ -126,6 +126,9 @@ public class LinkedList
 	
 	public void print()
 	{
+		if (first == null)
+			throw new IllegalStateException();
+		
 		if (first == last)
 		{
 			System.out.println(first.value);
