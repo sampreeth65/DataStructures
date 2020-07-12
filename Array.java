@@ -4,15 +4,17 @@ public class Array
 {
 	private int[] items;
 	private int count;
+	
 	public Array()
 	{
 		items = new int[3];
 	}
 	
-	public Array(int length)
+	public Array(int capacity)
 	{
-		items = new int[length];
+		items = new int[capacity];
 	}
+	
 	
 	public void insert(int value)
 	{

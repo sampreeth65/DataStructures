@@ -36,14 +36,21 @@ public class Main {
 		 * queue.add(30); queue.add(70); System.out.println(queue); queue.add(34);
 		 */
 
-		QueueUsingStack queue = new QueueUsingStack();
-
+		/*
+		 * QueueUsingStack queue = new QueueUsingStack();
+		 * 
+		 * 
+		 * queue.add(10); queue.add(20);
+		 * 
+		 * System.out.println(queue); System.out.println(queue.remove());
+		 */
 		
-		queue.add(10); 
-		queue.add(20);
-		 
+		PriorityQueue queue = new PriorityQueue();
+		queue.add(10);
+		queue.add(2);
+		queue.add(5);
+		queue.add(1);
 		System.out.println(queue);
-		System.out.println(queue.remove());
 	}
 
 }
