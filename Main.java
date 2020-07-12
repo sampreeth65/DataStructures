@@ -52,12 +52,8 @@ public class Main {
 		 * queue.reverseFirstKthElements(3); System.out.println(queue);
 		 */
 		
-		LinkedListQueue queue = new LinkedListQueue();
-		queue.add(10);
-		queue.add(20);
-		queue.add(30);
-		System.out.println(queue.remove());
-		//queue.print();
-		
+		HashTableExcercise mapping = new HashTableExcercise();
+		char ch = mapping.FirstNonRepeatedCharacter("Hello");
+		System.out.println(ch);
 	}
 }
