@@ -15,7 +15,8 @@ public class Main {
 			queue.add(stack.pop());
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		/*
 		 * ArrayQueue queue = new ArrayQueue(); queue.add(10); queue.add(20);
 		 * queue.add(30); queue.add(40); queue.add(50); //queue.add(60);
@@ -45,12 +46,18 @@ public class Main {
 		 * System.out.println(queue); System.out.println(queue.remove());
 		 */
 		
-		PriorityQueue queue = new PriorityQueue();
+		/*
+		 * QueueExcercises queue = new QueueExcercises(); queue.add(10); queue.add(20);
+		 * queue.add(30); queue.add(40); queue.add(50);
+		 * queue.reverseFirstKthElements(3); System.out.println(queue);
+		 */
+		
+		LinkedListQueue queue = new LinkedListQueue();
 		queue.add(10);
-		queue.add(2);
-		queue.add(5);
-		queue.add(1);
-		System.out.println(queue);
+		queue.add(20);
+		queue.add(30);
+		System.out.println(queue.remove());
+		//queue.print();
+		
 	}
-
 }

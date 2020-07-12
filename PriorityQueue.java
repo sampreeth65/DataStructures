@@ -4,8 +4,6 @@ import java.util.Arrays;
 
 public class PriorityQueue 
 {
-	//private Array ar = new Array(10);
-	
 	private int[] items = new int[5];
 	private int count;
 	
@@ -13,17 +11,7 @@ public class PriorityQueue
 	{
 		if (count == items.length)
 			throw new IllegalStateException();
-		
-		int i;
-		for (i = count; i>= 0; i--)
-		{
-			if (items[i] > item)
-				items[i + 1] = items[i];
-			else 
-				break;
-		}
-		items[i + 1] = item;
-		count++;
+		shiftElements(item);
 	}
 	
 	/**
@@ -32,12 +20,31 @@ public class PriorityQueue
 	 */
 	public int remove()
 	{
-		if (count == 0)
+		if (isEmpty())
 			throw new IllegalStateException();
 		
 		return items[--count];
 	}
 	
+	public boolean isEmpty()
+	{
+		return count == 0;
+	}
+	
+	public void shiftElements(int item)
+	{
+		int i;
+		for (i = count; i>= 0; i--)
+		{
+			if (items[i] > item)
+				items[i + 1] = items[i];
+			else 
+				break;
+		}
+		
+		items[i + 1] = item;
+		count++;
+	}
 	
 	@Override
 	public String toString() {
