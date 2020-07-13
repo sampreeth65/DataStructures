@@ -52,11 +52,18 @@ public class Main {
 		 * queue.reverseFirstKthElements(3); System.out.println(queue);
 		 */
 		
-		HashTableExcercise mapping = new HashTableExcercise();
-		char ch = mapping.FirstNonRepeatedCharacter("Hello");
-		System.out.println(ch);
+		/*
+		 * HashTableExcercise mapping = new HashTableExcercise(); char ch =
+		 * mapping.FirstNonRepeatedCharacter("Hello"); System.out.println(ch);
+		 * 
+		 * char ch1 = mapping.firstRepeatedCharacter("Hello"); System.out.println(ch1);
+		 */
 		
-		char ch1 = mapping.firstRepeatedCharacter("Hello");
-		System.out.println(ch1);
+		HashTable table = new HashTable();
+		
+		table.put(2, "Hello");
+		table.put(10, "world");
+		table.put(7, "Collision checking");
+		System.out.println(table.get(7));
 	}
 }
