@@ -59,11 +59,16 @@ public class Main {
 		 * char ch1 = mapping.firstRepeatedCharacter("Hello"); System.out.println(ch1);
 		 */
 		
-		HashTable table = new HashTable();
+		/*
+		 * HashTable table = new HashTable();
+		 * 
+		 * table.put(2, "Hello"); table.put(10, "world"); table.put(7,
+		 * "Collision checking"); System.out.println(table.get(7));
+		 */
 		
-		table.put(2, "Hello");
-		table.put(10, "world");
-		table.put(7, "Collision checking");
-		System.out.println(table.get(7));
+		HashTableExcercise map = new HashTableExcercise();
+		int[] array = {1,2,3,4,2,1,5,3,2,4,3,2,2,2};
+		System.out.println(map.mostFrequent(array));
+		
 	}
 }

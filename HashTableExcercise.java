@@ -45,4 +45,35 @@ public class HashTableExcercise
 		return Character.MIN_VALUE;
 		
 	}
+	
+	public int mostFrequent(int[] array)
+	{
+		Map<Integer, Integer> map1 = new HashMap<Integer, Integer>();
+		//Set<Integer> set = new HashSet<Integer>();
+		
+		
+		for (int ar : array)
+		{
+			int count = map1.containsKey(ar) ? map1.get(ar) : 0;
+			map1.put(ar, count + 1);
+			//set.add(ar);
+		}
+		
+		int highest = -1;
+		int result = array[0];
+		
+		for (int ar : array)
+		{
+			if (map1.get(ar) > highest)
+			{
+				highest = map1.get(ar);
+				result = ar;
+			}
+		}
+		
+		/*
+		 * for (int ar : array) { if (map1.get(ar) == highest) return ar; }
+		 */
+		return result;
+	}
 }
