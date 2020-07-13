@@ -55,5 +55,8 @@ public class Main {
 		HashTableExcercise mapping = new HashTableExcercise();
 		char ch = mapping.FirstNonRepeatedCharacter("Hello");
 		System.out.println(ch);
+		
+		char ch1 = mapping.firstRepeatedCharacter("Hello");
+		System.out.println(ch1);
 	}
 }
