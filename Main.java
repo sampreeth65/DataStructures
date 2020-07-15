@@ -66,9 +66,17 @@ public class Main {
 		 * "Collision checking"); System.out.println(table.get(7));
 		 */
 		
-		HashTableExcercise map = new HashTableExcercise();
-		int[] array = {1,2,3,4,2,1,5,3,2,4,3,2,2,2};
-		System.out.println(map.mostFrequent(array));
+		/*
+		 * HashTableExcercise map = new HashTableExcercise(); int[] array =
+		 * {1,2,3,4,2,1,5,3,2,4,3,2,2,2}; System.out.println(map.mostFrequent(array));
+		 */
+		
+		Tree tree = new Tree();
+		
+		tree.insert(10);
+		tree.insert(20);
+		
+		System.out.println("hello");
 		
 	}
 }
