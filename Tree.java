@@ -262,6 +262,8 @@ public class Tree
 		kthElements(root.rightChild,distance - 1);
 	}
 	
+	
+	
 	public int size()
 	{
 		int size = 0;
@@ -281,5 +283,59 @@ public class Tree
 		return size;
 	}
 	
+	public int countLeaves() 
+	{
+		int countLeaves = 0;
+		
+		return countLeaves(root,countLeaves);
+	}
+	
+	private int countLeaves(Node root,int countLeaves)
+	{
+		if (root == null)
+			return countLeaves;
+		
+		if (isLeaf(root))
+			countLeaves++;
+		
+		
+		countLeaves = countLeaves(root.leftChild,countLeaves);
+		countLeaves = countLeaves(root.rightChild,countLeaves);
+		
+		return countLeaves;
+	}
+	
+	public int max()
+	{
+		return max(root);
+	}
+	
+	private int max(Node root)
+	{
+		if (root == null)
+			throw new IllegalStateException();
+		
+		if (root.rightChild == null)
+			return root.value;
+		
+		return max(root.rightChild);
+	}
+	
+	public boolean contains(int value)
+	{
+		return contains(root,value);
+	}
+	
+	private boolean contains(Node root, int value)
+	{	
+		if (root == null)
+			return false;
+		
+		if (root.value == value)
+			return true;
+		
+		
+		return	contains(root.leftChild,value) || contains(root.rightChild,value);
+	}
 	
 }

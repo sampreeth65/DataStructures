@@ -74,6 +74,8 @@ public class Main {
 
 		
 		  tree.insert(20);
+		
+		
 		  tree.insert(10); 
 		  tree.insert(30); 
 		  tree.insert(26); 
@@ -103,6 +105,9 @@ public class Main {
 		// System.out.println(tree.minBST());
 		// System.out.println(tree.equals(tree2));
 		// tree.kthElements(3);
-		System.out.println(tree.size());
+		//System.out.println(tree.size());
+		//System.out.println(tree.countLeaves());
+		//System.out.println(tree.max());
+		System.out.println(tree.contains(11));
 	}
 }
