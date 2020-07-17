@@ -73,10 +73,19 @@ public class Main {
 		
 		Tree tree = new Tree();
 		
-		tree.insert(10);
-		tree.insert(20);
 		
-		System.out.println("hello");
+		  tree.insert(10); 
+		  tree.insert(20); 
+		  tree.insert(5); 
+		  tree.insert(1);
+		  tree.insert(3);
+		 
+		
+		
+		System.out.println(tree.find(3));
+		
+		
+		//System.out.println("hello");
 		
 	}
 }

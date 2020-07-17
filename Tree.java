@@ -57,6 +57,24 @@ public class Tree
 			}
 				
 		}
+	}
+	
+	public boolean find(int value)
+	{
+		if (root == null)
+			throw new IllegalStateException();
 		
+		Node currentNode = root;
+		while (currentNode != null)
+		{
+			if (currentNode.value == value)
+				return true;
+			
+			if (currentNode.value < value)
+				currentNode = currentNode.rightChild;
+			else
+				currentNode = currentNode.leftChild;
+		}
+		return false;
 	}
 }
