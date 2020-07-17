@@ -82,10 +82,10 @@ public class Main {
 		 
 		
 		
-		System.out.println(tree.find(3));
+		//System.out.println(tree.find(3));
 		
 		
 		//System.out.println("hello");
-		
+		tree.traversalPreOrder();
 	}
 }
