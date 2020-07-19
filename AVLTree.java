@@ -41,14 +41,27 @@ public class AVLTree
 		else
 			root.leftChild = insert(root.leftChild,value);
 		
-		root.height = Math.max(height(root.leftChild), height(root.rightChild));
+		root.height = maxHeight(root);
 		
-		int balanceFactor = balanceFactor(root);
+		root = balance(root);
+
+		return root;
+	}
+
+	private Node balance(Node root)
+	{
 		if (isLeftHeavy(root))
-			System.out.println("Left heavy");
+		{
+			if (balanceFactor(root.leftChild) < 0)
+				root.leftChild = leftRotate(root.leftChild);
+			root = rightRotate(root);
+		}
 		else if (isRightHeavy(root))
-			System.out.println("Right Heavy");
-		
+		{
+			if (balanceFactor(root.rightChild) > 0)
+				root.rightChild = rightRotate(root.rightChild);
+			root = leftRotate(root);
+		}
 		return root;
 	}
 	
@@ -59,17 +72,44 @@ public class AVLTree
 	
 	private boolean isLeftHeavy(Node node)
 	{
-		return height(node.leftChild) - height(node.rightChild) > 1;
+		return (balanceFactor(node) > 1);
 	}
 	
 	private boolean isRightHeavy(Node node)
 	{
-		return height(node.leftChild) - height(node.rightChild) < -1;
+		return (balanceFactor(node) < -1);
 	}
 	
 	private int balanceFactor(Node node)
 	{
 		return (node == null) ? 0 : (height(node.leftChild) - height(node.rightChild));
 	}
-	
+
+	private Node leftRotate(Node root)
+	{
+		newRoot = root.rightChild;
+		root.rightChild = newRoot.leftChild;
+		newRoot.leftChild = root;
+		maxHeight(newRoot);
+		maxHeight(root);
+
+
+		return newRoot;
+	}
+
+	private int maxHeight(Node node)
+	{
+		node.height = Math.max(height(node.leftChild), height(node.rightChild)) + 1;
+	}
+
+	private Node rightRotate(Node root)
+	{
+		newRoot = root.leftChild;
+		root.leftChild = newRoot.leftChild;
+		newRoot.rightChild = root;
+		maxHeight(root);
+		maxHeight(newRoot);
+
+		return newRoot;
+	}
 }

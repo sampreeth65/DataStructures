@@ -106,12 +106,13 @@ public class Main {
 		//System.out.println(tree.max());
 		//System.out.println(tree.contains(11));
 		AVLTree tree = new AVLTree();
-		
+
 		tree.insert(10);
-		tree.insert(1);
 		tree.insert(20);
-		tree.insert(12);
-		System.out.println("done");
+		tree.insert(30);
+		//tree.insert(40);
+
+		/*System.out.println("done");*/
 				
 	}
 }
