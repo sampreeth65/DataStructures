@@ -70,20 +70,16 @@ public class Main {
 		 * {1,2,3,4,2,1,5,3,2,4,3,2,2,2}; System.out.println(map.mostFrequent(array));
 		 */
 
-		Tree tree = new Tree();
-
-		
-		  tree.insert(20);
-		
-		
-		  tree.insert(10); 
-		  tree.insert(30); 
-		  tree.insert(26); 
-		  tree.insert(24);
-		  tree.insert(6); 
-		  tree.insert(14); 
-		  tree.insert(3); 
-		  tree.insert(8);
+		/*
+		 * Tree tree = new Tree();
+		 * 
+		 * 
+		 * tree.insert(20);
+		 * 
+		 * 
+		 * tree.insert(10); tree.insert(30); tree.insert(26); tree.insert(24);
+		 * tree.insert(6); tree.insert(14); tree.insert(3); tree.insert(8);
+		 */
 		 
 
 		/*
@@ -108,6 +104,14 @@ public class Main {
 		//System.out.println(tree.size());
 		//System.out.println(tree.countLeaves());
 		//System.out.println(tree.max());
-		System.out.println(tree.contains(11));
+		//System.out.println(tree.contains(11));
+		AVLTree tree = new AVLTree();
+		
+		tree.insert(10);
+		tree.insert(1);
+		tree.insert(20);
+		tree.insert(12);
+		System.out.println("done");
+				
 	}
 }
