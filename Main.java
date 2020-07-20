@@ -105,12 +105,27 @@ public class Main {
 		//System.out.println(tree.countLeaves());
 		//System.out.println(tree.max());
 		//System.out.println(tree.contains(11));
+		/*
 		AVLTree tree = new AVLTree();
 
 		tree.insert(10);
 		tree.insert(20);
 		tree.insert(30);
 		//tree.insert(40);
+
+*/
+		Heap heap = new Heap();
+		heap.insert(20);
+		heap.insert(10);
+		heap.insert(3);
+		heap.insert(1);
+		heap.insert(5);
+		heap.insert(11);
+		heap.insert(32);
+		System.out.println(heap);
+		heap.remove();
+		System.out.println(heap);
+
 
 		/*System.out.println("done");*/
 				

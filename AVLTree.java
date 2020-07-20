@@ -87,7 +87,7 @@ public class AVLTree
 
 	private Node leftRotate(Node root)
 	{
-		newRoot = root.rightChild;
+		Node newRoot = root.rightChild;
 		root.rightChild = newRoot.leftChild;
 		newRoot.leftChild = root;
 		maxHeight(newRoot);
@@ -99,12 +99,12 @@ public class AVLTree
 
 	private int maxHeight(Node node)
 	{
-		node.height = Math.max(height(node.leftChild), height(node.rightChild)) + 1;
+		return Math.max(height(node.leftChild), height(node.rightChild)) + 1;
 	}
 
 	private Node rightRotate(Node root)
 	{
-		newRoot = root.leftChild;
+		Node newRoot = root.leftChild;
 		root.leftChild = newRoot.leftChild;
 		newRoot.rightChild = root;
 		maxHeight(root);
