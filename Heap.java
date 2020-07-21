@@ -35,24 +35,59 @@ public class Heap
 
     public void remove()
     {
-        swap(0,count);
-        list[count--] = 0;
+        if (count == 0)
+            throw new IllegalStateException();
+
+        list[0] = list[--count];
+
         bubbleDown();
     }
 
     private void bubbleDown()
     {
         int startIndex = 0;
-        while (startIndex != count)
+        while (startIndex <= count && !isValidParent(startIndex))
         {
-            int maxValue = Math.max(leftChild(startIndex),rightChild(startIndex));
-            if (list[leftIndex(startIndex)] == maxValue)
-                swap(0,leftIndex(startIndex));
-            else
-                swap(0,rightIndex(startIndex));
+            int maxValue = largestChildIndex(startIndex);
 
-            startIndex++;
+            swap(startIndex,maxValue);
+            startIndex = maxValue
+
         }
+    }
+
+    private int largestChildIndex(int index)
+    {
+        if (!hasLeftChild(index))
+            return index;
+
+        if (!hasRightChild(index))
+            return leftIndex(index);
+
+        return leftChild(index) > rightChild(index) ? leftChild(index) : rightChild(index);
+    }
+
+    private boolean hasLeftChild(int index)
+    {
+        return leftIndex(index) <= count;
+    }
+
+    private boolean hasRightChild(int index)
+    {
+        return rightIndex(index) <= count;
+    }
+
+
+    private boolean isValidParent(int index)
+    {
+        if (!hasLeftChild(index))
+            return true;
+
+        if (!hasRightChild(index))
+            return list[index] >= leftChild(index);
+
+        return list[index] >= leftChild(index) &&
+                list[index] >= rightChild(index);
     }
 
     private int leftChild(int currentIndex)
