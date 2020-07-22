@@ -140,6 +140,13 @@ public class Main {
 		heap.insert(5,"Java");
 		heap.insert(6,"sampreeth");
 		heap.insert(7,"Mad");
+		System.out.println(heap.remove());
+		System.out.println(heap.remove());
+		System.out.println(heap.remove());
+		System.out.println(heap.remove());
+		System.out.println(heap.remove());
+		System.out.println(heap.remove());
+		System.out.println(heap.remove());
 
 		System.out.println();
 	}

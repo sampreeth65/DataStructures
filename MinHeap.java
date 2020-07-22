@@ -24,28 +24,67 @@ public class MinHeap
 
     public void insert(int key, String value)
     {
-        if (count == node.length)
-        {
-            for (int index = 0; index < node.length; index++)
-            {
-                if (node[index].key == key)
-                    node[index].value = value;
-            }
-            return;
-        }
+        if (isFull())
+            throw new IllegalArgumentException();
 
-        if (node[count] == null)
-        {
-            node[count] = new Node(key, value);
-            count++;
-        }
+        node[count++] = new Node(key, value);
 
         int currentIndex = count - 1;
-        bubbleDown(currentIndex);
+        bubbleUp(currentIndex);
 
     }
 
+    public String remove()
+    {
+        if (isEmpty())
+            throw new IllegalArgumentException();
+
+        String value = node[0].value;
+        node[0] = node[--count];
+
+        bubbleDown(0);
+
+        return value;
+    }
+
     private void bubbleDown(int currentIndex)
+    {
+        if (!isValidParent(currentIndex))
+        {
+            int lowestIndex = lowestIndex(currentIndex);
+            swap(currentIndex,lowestIndex);
+            currentIndex = lowestIndex;
+        }
+
+        if (currentIndex == currentIndex)
+            return;
+
+        bubbleDown(currentIndex);
+    }
+
+    private int lowestIndex(int index)
+    {
+        int lowest = index;
+        if (node[leftChildIndex(lowest)].key < node[lowest].key )
+            lowest = leftChildIndex(lowest);
+
+        if (node[rightChildIndex(index)].key < node[index].key)
+            lowest = rightChildIndex(index);
+
+        return lowest;
+    }
+
+    public boolean isFull()
+    {
+        return count == node.length;
+    }
+
+    public boolean isEmpty()
+    {
+        return count == 0;
+    }
+
+    private void bubbleUp(int currentIndex)
     {
         if (currentIndex == 0)
             return;
@@ -53,7 +92,7 @@ public class MinHeap
         if (node[currentIndex].key < node[parentIndex(currentIndex)].key)
             swap(currentIndex,parentIndex(currentIndex));
 
-        bubbleDown(parentIndex(currentIndex));
+        bubbleUp(parentIndex(currentIndex));
     }
 
     private int parentIndex(int index)
@@ -66,5 +105,23 @@ public class MinHeap
         Node temp = node[firstIndex];
         node[firstIndex] = node[secondIndex];
         node[secondIndex] = temp;
+    }
+
+    private boolean isValidParent(int index)
+    {
+        if (!(leftChildIndex(index) < node.length) || !(rightChildIndex(index) < node.length))
+            return false;
+
+        return node[index].key < node[leftChildIndex(index)].key && node[index].key < node[rightChildIndex(index)].key;
+    }
+
+    private int leftChildIndex(int index)
+    {
+        return (index * 2) + 1;
+    }
+
+    private int rightChildIndex(int index)
+    {
+        return (index * 2) + 2;
     }
 }
