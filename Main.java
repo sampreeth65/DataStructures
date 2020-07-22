@@ -134,7 +134,7 @@ public class Main {
 
 		/*System.out.println("done");*/
 
-		MinHeap heap = new MinHeap(10);
+		/*MinHeap heap = new MinHeap(10);
 		heap.insert(10,"World");
 		heap.insert(1,"Hello");
 		heap.insert(5,"Java");
@@ -148,6 +148,9 @@ public class Main {
 		System.out.println(heap.remove());
 		System.out.println(heap.remove());
 
-		System.out.println();
+		System.out.println();*/
+
+		Trie trie = new Trie();
+		trie.insert("hello");
 	}
 }
