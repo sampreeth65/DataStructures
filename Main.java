@@ -127,7 +127,7 @@ public class Main {
 		heap.remove();
 		System.out.println(heap);*/
 
-        int[] array = {5,2,8,1,4,10,2};
+        int[] array = {5,3,8,4,1,2,10,12,6,8,1,15};
         MaxHeap.heapify(array);
         System.out.println(Arrays.toString(array));
 

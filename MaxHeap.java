@@ -4,17 +4,14 @@ public class MaxHeap
 {
     public static void heapify(int[] array)
     {
-        for(int index = 0; index < array.length; index++)
-            heapify(array,index);
+        for(int index = 0; index < array.length; index++) {
+            heapify(array, index);
+        }
     }
 
     private static void heapify(int[] array,int index)
     {
-
         int largestIndex = index;
-
-        if (largestIndex >= array.length)
-            return;
 
         int leftIndex = largestIndex * 2 + 1;
         if (leftIndex < array.length && array[leftIndex] > array[largestIndex])
@@ -25,10 +22,15 @@ public class MaxHeap
 
 
         int rightIndex = largestIndex * 2 + 2;
-        if (rightIndex < array.length && array[rightIndex] > array[largestIndex]) {
+        if (rightIndex < array.length && array[rightIndex] > array[largestIndex])
+        {
             swap(array, largestIndex, rightIndex);
             largestIndex = rightIndex;
         }
+
+        if (largestIndex == index)
+            return;
+
         heapify(array,largestIndex);
     }
 
