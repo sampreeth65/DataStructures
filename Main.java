@@ -1,6 +1,7 @@
 package DataStructures;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Queue;
 
 //import javax.sound.sampled.ReverbType;
@@ -114,7 +115,7 @@ public class Main {
 		//tree.insert(40);
 
 */
-		Heap heap = new Heap();
+		/*Heap heap = new Heap();
 		heap.insert(20);
 		heap.insert(10);
 		heap.insert(3);
@@ -124,7 +125,11 @@ public class Main {
 		heap.insert(32);
 		System.out.println(heap);
 		heap.remove();
-		System.out.println(heap);
+		System.out.println(heap);*/
+
+        int[] array = {5,2,8,1,4,10,2};
+        MaxHeap.heapify(array);
+        System.out.println(Arrays.toString(array));
 
 
 		/*System.out.println("done");*/

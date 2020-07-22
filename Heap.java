@@ -51,7 +51,7 @@ public class Heap
             int maxValue = largestChildIndex(startIndex);
 
             swap(startIndex,maxValue);
-            startIndex = maxValue
+            startIndex = maxValue;
 
         }
     }
