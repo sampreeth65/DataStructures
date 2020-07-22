@@ -40,4 +40,28 @@ public class MaxHeap
         array[largestIndex] = array[leftIndex];
         array[leftIndex] = temp;
     }
+
+    public static boolean isMaxHeap(int[] array)
+    {
+        // leftChild > parent
+        // rightChild > parent
+
+        for (int index = 0; index < array.length; index++)
+        {
+            if (leftChildIndex(index) < array.length && rightChildIndex(index) < array.length)
+                if (!(array[index] > array[leftChildIndex(index)] && array[index] > array[rightChildIndex(index)]))
+                    return false;
+        }
+        return true;
+    }
+
+    private static int leftChildIndex(int index)
+    {
+        return (index * 2) + 1;
+    }
+
+    private static int rightChildIndex(int index)
+    {
+        return (index * 2) + 2;
+    }
 }

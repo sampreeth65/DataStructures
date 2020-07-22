@@ -127,12 +127,20 @@ public class Main {
 		heap.remove();
 		System.out.println(heap);*/
 
-        int[] array = {5,3,8,4,1,2,10,12,6,8,1,15};
-        MaxHeap.heapify(array);
-        System.out.println(Arrays.toString(array));
-
+        /*int[] array = {5,3,4,2,1};
+        //MaxHeap.heapify(array);
+        //System.out.println(Arrays.toString(array));
+        System.out.println(MaxHeap.isMaxHeap(array));*/
 
 		/*System.out.println("done");*/
-				
+
+		MinHeap heap = new MinHeap(10);
+		heap.insert(10,"World");
+		heap.insert(1,"Hello");
+		heap.insert(5,"Java");
+		heap.insert(6,"sampreeth");
+		heap.insert(7,"Mad");
+
+		System.out.println();
 	}
 }
