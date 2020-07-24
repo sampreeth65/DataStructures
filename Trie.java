@@ -74,8 +74,28 @@ public class Trie
         {
             if (!currentNode.hasChild(character))
                 currentNode.addChild(character);
-            currentNode = currentNode.children.get(character);
+            currentNode = currentNode.getChild(character);
         }
         currentNode.isEndOfWord = true;
+    }
+
+    public boolean contains(String word)
+    {
+        if (word == null)
+            return false;
+        
+        Node currentNode = root;
+
+        for(char character : word.toCharArray())
+        {
+            if (!currentNode.hasChild(character))
+                return false;
+            currentNode = currentNode.getChild(character);
+        }
+
+        if (currentNode.isEndOfWord != true)
+            return false;
+
+        return true;
     }
 }
