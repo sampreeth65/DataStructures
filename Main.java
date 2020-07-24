@@ -151,6 +151,8 @@ public class Main {
 		System.out.println();*/
 
 		Trie trie = new Trie();
-		trie.insert("hello");
+		trie.insert("cat");
+		trie.insert("can");
+        System.out.println("Done");
 	}
 }
