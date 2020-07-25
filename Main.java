@@ -151,8 +151,19 @@ public class Main {
 		System.out.println();*/
 
 		Trie trie = new Trie();
-		trie.insert("cat");
+		//trie.insert("cat");
 		trie.insert("canada");
-		System.out.println(trie.contains(""));
+		trie.insert("can");
+		trie.insert("cat");
+		trie.insert("tiger");
+		trie.insert("careful");
+		trie.insert("care");
+		trie.insert("car");
+		//System.out.println(trie.contains(""));
+        //trie.traverse();
+		//trie.remove("canada");
+		//System.out.println(trie.contains("canada"));
+		var words = trie.findWord(null);
+		System.out.println(words);
 	}
 }
