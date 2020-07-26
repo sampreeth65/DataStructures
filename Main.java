@@ -170,7 +170,10 @@ public class Main {
         Graph graph = new Graph();
         graph.addNode("Hello");
         graph.addNode("Google");
+        graph.addNode("World");
         graph.addEdges("Hello", "Google");
+        graph.addEdges("Hello","World");
+        graph.remove("Google");
         graph.print();
 	}
 }
