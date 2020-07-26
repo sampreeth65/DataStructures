@@ -150,7 +150,7 @@ public class Main {
 
 		System.out.println();*/
 
-		Trie trie = new Trie();
+		/*Trie trie = new Trie();
 		//trie.insert("cat");
 		trie.insert("canada");
 		trie.insert("can");
@@ -164,6 +164,13 @@ public class Main {
 		//trie.remove("canada");
 		//System.out.println(trie.contains("canada"));
 		var words = trie.findWord(null);
-		System.out.println(words);
+		System.out.println(words);*/
+
+
+        Graph graph = new Graph();
+        graph.addNode("Hello");
+        graph.addNode("Google");
+        graph.addEdges("Hello", "Google");
+        graph.print();
 	}
 }
