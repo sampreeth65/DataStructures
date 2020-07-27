@@ -18,13 +18,11 @@ public class LinkedList
 			value = newValue;
 		}
 	}
-	
-	
+
 	private Node first;
 	private Node last;
 	private int size;
-	
-	//addFirst
+
 	public void addFirst(int item)
 	{
 		Node node = new Node(item);
@@ -39,8 +37,7 @@ public class LinkedList
 		
 		size++;
 	}
-	
-	
+
 	//addLast
 	public void addLast(int item)
 	{
@@ -225,8 +222,6 @@ public class LinkedList
 	//Find the kth node from the end with one search.
 	public int getKthElementFromTheEnd(int kth)
 	{
-		
-		
 		//first have two points 
 		// place the pointer in such a way that first pointer and second pointer are at a distance.
 		// distance is k -1
@@ -286,9 +281,7 @@ public class LinkedList
 				}	
 				secondPointer = secondPointer.next;
 			}
-			
-			
-			
+
 			if (secondPointer == last)
 			{
 				if (count % 2 == 0)

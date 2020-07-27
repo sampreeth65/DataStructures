@@ -1,5 +1,6 @@
 package DataStructures;
 
+import java.util.List;
 import java.util.Queue;
 
 
@@ -17,14 +18,16 @@ public class Main {
 
 
         Graph graph = new Graph();
+        graph.addNode("X");
         graph.addNode("A");
         graph.addNode("B");
-        graph.addNode("C");
-        graph.addNode("D");
-        graph.addEdges("A","B");
-        graph.addEdges("B","D");
-        graph.addEdges("D","C");
-        graph.addEdges("A","C");
-        graph.traverseDepthFirstIterative("r");
+        graph.addNode("P");
+        graph.addEdges("X","A");
+        graph.addEdges("X","B");
+        graph.addEdges("A","P");
+        graph.addEdges("B","P");
+        //graph.traverseDepthFirstIterative("r");
+        List<String> list = graph.topologicalSorting();
+        System.out.println(list);
 	}
 }

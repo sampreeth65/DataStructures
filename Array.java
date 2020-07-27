@@ -20,7 +20,6 @@ public class Array
 	{
 		if (count == items.length)
 		{
-			
 			int[] newItems = new int[count * 2];
 
 			for (int index = 0; index < count; index++)
@@ -43,7 +42,6 @@ public class Array
 			items[newIndex] = items[newIndex + 1];
 		
 		count--;
-			
 	}
 	
 	public int indexOf(int value)

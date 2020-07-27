@@ -121,4 +121,57 @@ public class Graph
                     stack.push(nodeItem);
         }
     }
+
+    public void traverseBreadthFirst(String root)
+    {
+        Node rootNode = nodes.get(root);
+        if (rootNode == null)
+            return;
+
+        Set<Node> visitedNode = new HashSet<>();
+
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(rootNode);
+
+        while(!queue.isEmpty())
+        {
+            Node currentNode = queue.remove();
+            visitedNode.add(currentNode);
+            System.out.println(currentNode);
+
+            for (Node nodeItem : adjacencyNode.get(currentNode))
+                if (!visitedNode.contains(nodeItem))
+                    queue.add(nodeItem);
+        }
+    }
+
+    public List<String> topologicalSorting()
+    {
+        Stack<Node> stack = new Stack<>();
+        Set<Node> visited = new HashSet<>();
+        List<String> list = new ArrayList<>();
+
+        for(Node node: nodes.values())
+            topologicalSorting(node,visited,stack);
+
+        while(!stack.isEmpty())
+        {
+            Node node = stack.pop();
+            list.add(node.toString());
+        }
+
+        return list;
+    }
+
+    private void topologicalSorting(Node root,Set<Node> visited,Stack<Node> stack)
+    {
+        visited.add(root);
+
+        for (Node node : adjacencyNode.get(root))
+        {
+            if (!visited.contains(node))
+                topologicalSorting(node,visited,stack);
+        }
+        stack.push(root);
+    }
 }
