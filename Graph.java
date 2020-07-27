@@ -1,9 +1,7 @@
 package DataStructures;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.Stack;
 
 public class Graph
 {
@@ -80,6 +78,47 @@ public class Graph
             return;
 
         adjacencyNode.get(fromNode).remove(toNode);
+    }
 
+    public void traverseDepthFirst(String root)
+    {
+        Node rootNode = nodes.get(root);
+        if (rootNode == null)
+            return;
+
+        traverseDepthFirst(rootNode,new HashSet<>());
+    }
+
+    private void traverseDepthFirst(Node root, Set<Node> visitedNode)
+    {
+        System.out.println(root);
+        visitedNode.add(root);
+
+        for (Node node : adjacencyNode.get(root))
+        {
+            if (!visitedNode.contains(node))
+                traverseDepthFirst(node,visitedNode);
+        }
+    }
+
+    public void traverseDepthFirstIterative(String root)
+    {
+        Node rootNode = nodes.get(root);
+        if (rootNode == null)
+            return;
+
+        Set<Node> visitedNode = new HashSet<>();
+        Stack<Node> stack = new Stack<>();
+        stack.push(rootNode);
+        while (!stack.isEmpty())
+        {
+            Node currentNode = stack.pop();
+            visitedNode.add(currentNode);
+            System.out.println(currentNode);
+            List<Node> listNode = adjacencyNode.get(currentNode);
+            for (Node nodeItem : listNode)
+                if (!visitedNode.contains(nodeItem))
+                    stack.push(nodeItem);
+        }
     }
 }
