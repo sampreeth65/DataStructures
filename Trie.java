@@ -200,4 +200,41 @@ public class Trie
         }
         return currentNode;
     }
+
+    public boolean containsRec(String word)
+    {
+        return containsRec(root,word,0);
+    }
+
+    private boolean containsRec(Node root,String word,int index)
+    {
+        if (index == word.length())
+        {
+            return root.isEndOfWord ? true : false;
+        }
+
+        if (!root.hasChild(word.charAt(index)))
+            return false;
+
+
+
+        root = root.getChild(word.charAt(index));
+        return containsRec(root,word,index + 1);
+    }
+
+    public int countWords()
+    {
+        return countWords(root,0);
+    }
+
+    private int countWords(Node root,int counter)
+    {
+        if (root.isEndOfWord)
+            counter++;
+
+        for (Node node : root.getChildren())
+            counter = countWords(node,counter);
+
+        return counter;
+    }
 }

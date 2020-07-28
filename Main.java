@@ -15,19 +15,13 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-
-
-        Graph graph = new Graph();
-        graph.addNode("X");
+		
+        WeightedGraph graph = new WeightedGraph();
         graph.addNode("A");
         graph.addNode("B");
-        graph.addNode("P");
-        graph.addEdges("X","A");
-        graph.addEdges("X","B");
-        graph.addEdges("A","P");
-        graph.addEdges("B","P");
-        //graph.traverseDepthFirstIterative("r");
-        List<String> list = graph.topologicalSorting();
-        System.out.println(list);
+        graph.addNode("c");
+        graph.addEdge("A","B",3);
+        graph.addEdge("A","c",2);
+        graph.print();
 	}
 }
