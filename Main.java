@@ -21,7 +21,9 @@ public class Main {
         graph.addNode("B");
         graph.addNode("c");
         graph.addEdge("A","B",3);
-        graph.addEdge("A","c",2);
-        graph.print();
+        graph.addEdge("A","c",10);
+        graph.addEdge("B","c",2);
+        Path path = graph.getShortestDistance("A","C");
+        System.out.println(path);
 	}
 }

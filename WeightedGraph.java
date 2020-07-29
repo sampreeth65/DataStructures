@@ -1,9 +1,8 @@
 package DataStructures;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.PriorityQueue;
+import java.util.Stack;
 
 public class WeightedGraph
 {
@@ -85,5 +84,74 @@ public class WeightedGraph
                 System.out.println(node + " is connected to " + edges);
         }
     }
+
+    private class NodeEntry
+    {
+        private Node node;
+        private int priority;
+
+        public NodeEntry(Node node, int priority) {
+            this.node = node;
+            this.priority = priority;
+        }
+    }
+    public Path getShortestDistance(String from, String to)
+    {
+        Node fromNode = nodes.get(from);
+        Node toNode = nodes.get(to);
+
+
+        Map<Node,Integer> distance = new HashMap<>();
+        for (Node node : nodes.values())
+            distance.put(node,Integer.MAX_VALUE);
+        distance.replace(fromNode,0);
+
+        Set<Node> visited = new HashSet<>();
+        Map<Node,Node> previousNode = new HashMap<>();
+
+        PriorityQueue<NodeEntry> queue = new PriorityQueue<>(Comparator.comparingInt(ne -> ne.priority));
+        queue.add(new NodeEntry(fromNode,0));
+
+
+        while (!queue.isEmpty())
+        {
+            Node current = queue.remove().node;
+            visited.add(current);
+
+            for (Edge edge :current.getEdge())
+            {
+                if (visited.contains(edge.to))
+                    continue;
+
+                int newDistance = distance.get(current) + edge.weight;
+                if (newDistance < distance.get(edge.to))
+                {
+                    distance.replace(edge.to,newDistance);
+                    previousNode.put(edge.to,current);
+                    queue.add(new NodeEntry(edge.to,newDistance));
+                }
+
+            }
+        }
+
+        Stack<Node> stack = new Stack<>();
+        stack.push(toNode);
+        Node previous = previousNode.get(toNode);
+        while (previous != null)
+        {
+            stack.push(previous);
+            previous = previousNode.get(previous);
+        }
+
+        Path path = new Path();
+        while (!stack.isEmpty())
+        {
+            path.add(stack.pop().label);
+        }
+
+
+        return path;
+    }
+
 
 }
