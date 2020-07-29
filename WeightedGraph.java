@@ -95,32 +95,38 @@ public class WeightedGraph
             this.priority = priority;
         }
     }
-    public Path getShortestDistance(String from, String to)
+
+    /**
+     * Dijkstra's shortest path algorithm
+     * @param from
+     * @param to
+     * @return
+     */
+    public Path getShortestPath(String from,String to)
     {
         Node fromNode = nodes.get(from);
         Node toNode = nodes.get(to);
 
-
         Map<Node,Integer> distance = new HashMap<>();
-        for (Node node : nodes.values())
+        for (Node node :nodes.values())
             distance.put(node,Integer.MAX_VALUE);
         distance.replace(fromNode,0);
 
         Set<Node> visited = new HashSet<>();
+
         Map<Node,Node> previousNode = new HashMap<>();
 
         PriorityQueue<NodeEntry> queue = new PriorityQueue<>(Comparator.comparingInt(ne -> ne.priority));
         queue.add(new NodeEntry(fromNode,0));
-
 
         while (!queue.isEmpty())
         {
             Node current = queue.remove().node;
             visited.add(current);
 
-            for (Edge edge :current.getEdge())
+            for (Edge edge : current.getEdge())
             {
-                if (visited.contains(edge.to))
+                if (visited.contains(edge.to))  // this one is still unsure.
                     continue;
 
                 int newDistance = distance.get(current) + edge.weight;
@@ -130,7 +136,6 @@ public class WeightedGraph
                     previousNode.put(edge.to,current);
                     queue.add(new NodeEntry(edge.to,newDistance));
                 }
-
             }
         }
 
@@ -143,12 +148,10 @@ public class WeightedGraph
             previous = previousNode.get(previous);
         }
 
+        System.out.println(stack.pop());
         Path path = new Path();
         while (!stack.isEmpty())
-        {
             path.add(stack.pop().label);
-        }
-
 
         return path;
     }

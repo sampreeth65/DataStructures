@@ -23,7 +23,7 @@ public class Main {
         graph.addEdge("A","B",3);
         graph.addEdge("A","c",10);
         graph.addEdge("B","c",2);
-        Path path = graph.getShortestDistance("A","C");
+        Path path = graph.getShortestPath("A","c");
         System.out.println(path);
 	}
 }
