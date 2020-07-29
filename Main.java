@@ -19,11 +19,13 @@ public class Main {
         WeightedGraph graph = new WeightedGraph();
         graph.addNode("A");
         graph.addNode("B");
-        graph.addNode("c");
+        graph.addNode("C");
         graph.addEdge("A","B",3);
-        graph.addEdge("A","c",10);
-        graph.addEdge("B","c",2);
-        Path path = graph.getShortestPath("A","c");
-        System.out.println(path);
+        graph.addEdge("B","C",10);
+        graph.addEdge("C","A",0);
+        //graph.addEdge("B","c",2);
+        //Path path = graph.getShortestPath("A","c");
+        //System.out.println(path);
+        System.out.println(graph.hasCycle());
 	}
 }
