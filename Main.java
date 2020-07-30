@@ -17,9 +17,6 @@ public class Main {
 
 	public static void main(String[] args)
 	{
-		int[] array = {};
-		InsertionSort insertion = new InsertionSort();
-		insertion.sort(array);
-		System.out.println(Arrays.toString(array));
+
 	}
 }
