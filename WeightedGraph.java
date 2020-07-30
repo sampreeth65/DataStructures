@@ -188,4 +188,46 @@ public class WeightedGraph
         return false;
     }
 
+    /**
+     * Prim's Algorithm
+     * @return
+     */
+    public WeightedGraph getMinimumSpanningTree()
+    {
+        WeightedGraph tree = new WeightedGraph();
+
+        if (nodes.isEmpty())
+            return tree;
+
+        PriorityQueue<Edge> edges = new PriorityQueue<>(Comparator.comparingInt(e -> e.weight));
+
+        Node startNode = nodes.values().iterator().next();
+        for (Edge edge : startNode.getEdge())
+            edges.add(edge);
+
+        if (edges.isEmpty())
+            return tree;
+
+        tree.addNode(startNode.label);
+
+        while (tree.nodes.size() < nodes.size())
+        {
+            Edge minEdge = edges.remove();
+
+            if (tree.nodes.containsKey(minEdge.to.label))
+                continue;
+
+            tree.addNode(minEdge.to.label);
+            tree.addEdge(minEdge.from.label,minEdge.to.label,minEdge.weight);
+
+            for (Edge edge : minEdge.to.getEdge())
+            {
+                if (!tree.nodes.containsKey(edge.to.label))
+                    edges.add(edge);
+            }
+        }
+
+        return tree;
+    }
+
 }
