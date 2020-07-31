@@ -17,8 +17,8 @@ public class Main {
 
 	public static void main(String[] args)
 	{
-	    int[] array = {15,6,3,1,22,10,13};
-        QuickSort quick = new QuickSort();
+	    int[] array = {15,6,3,1,12,12,22,10,13};
+        var quick = new CountingSort();
         quick.sort(array);
         System.out.println(Arrays.toString(array));
 
