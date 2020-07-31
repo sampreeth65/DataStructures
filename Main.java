@@ -15,8 +15,6 @@ public class Main {
 
 	public static void main(String[] args)
 	{
-	    int[] array = {15,6,3,1,12,12,22,10,13};
-       	var serach = new Search();
-		System.out.println(serach.binarySearchRec(array,3));
+		System.out.println(StringUtil.removeDuplicate("Helloworld"));
 	}
 }
