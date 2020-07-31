@@ -17,6 +17,10 @@ public class Main {
 
 	public static void main(String[] args)
 	{
+	    int[] array = {15,6,3,1,22,10,13};
+        QuickSort quick = new QuickSort();
+        quick.sort(array);
+        System.out.println(Arrays.toString(array));
 
 	}
 }
