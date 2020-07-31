@@ -18,9 +18,8 @@ public class Main {
 	public static void main(String[] args)
 	{
 	    int[] array = {15,6,3,1,12,12,22,10,13};
-        var quick = new BucketSort();
-        quick.sort(array,7);
-        System.out.println(Arrays.toString(array));
+       	var serach = new LinearSearch();
+		System.out.println(serach.search(array,3));
 
 	}
 }
